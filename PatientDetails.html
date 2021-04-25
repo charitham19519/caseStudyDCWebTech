@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient</title>
+    <script>
+        function onValidate(){
+            FirstName=document.getElementById("fname").value;
+            LastName=document.getElementById("lname").value;
+            MobileNumber=document.getElementById("mobile").value;
+
+            var  correct_way=/^[A-Za-z]+$/;
+            if (FirstName==null || FirstName==""){  
+                 alert("Name can't be blank");  
+                 return false;  
+            }
+            if(FirstName.match(correct_way)){
+                 true;
+            }
+            else{
+
+                 alert("The First name should not contain special Characters");
+                 return false;
+           }
+           if(LastName.match(correct_way)){
+                true;
+           }
+           else{
+            alert("The Last name should not contain special Characters");
+                 return false; 
+           }
+           if(MobileNumber.length!=10 || MobileNumber.charAt(0)=="0"){
+               alert("Please enter proper Phone number");
+               return false;
+
+           }
+        }
+
+    </script>
+    <style>
+        body{
+              margin: 0;
+              padding: 0;
+              font-family: sans-serif;
+              background: #34495e;
+              font-size: 12px;
+              background-image:url("images/bg4.jpg") ;
+              background-size: 1500px 700px;
+            }
+            .box{
+              width: 360px;
+              height: 500px;
+              color:white;
+              padding-top: 5px;
+              padding-left: 40px;
+              padding-bottom: 5px;
+              padding-right: 40px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%,-50%);
+              background: linear-gradient(rgba(5, 169, 190, 0.8),rgba(5, 149, 185, 0.8)); 
+              border-radius: 40px 0px;
+            }
+            button{
+            border: 0;
+            background: none;
+            /* margin: 15px; */
+            /*text-align: center;*/
+            border: 2px solid white;
+             /* padding: 0px 100px;  */
+            width: 120px;
+            color: white;
+            border-radius: 24px;
+            outline: none;
+            
+           }
+           button:hover{
+               background-color: white;
+               color: black;
+           }
+           .box h1{
+               text-align: center;
+           }
+    </style>
+</head>
+<body>
+    <div class=box>
+        <h1>Patient Details</h1>
+    <form action="">
+      <table>
+        <tr>
+            <td><label for="">Gender</label></td>
+        </tr>
+        </table>
+        <table>
+         <tr>
+            <td><input type="radio" name="gender" id="gender"></td>
+            <td><label for="">Male</label></td>
+            <td><input type="radio" name="gender" id=""></td>
+            <td><label for="">Female</label></td>
+        </tr>
+        </table>
+          <table>
+          <tr>
+              <td><label for="">First Name</label></td>
+              <td><input type="text" name="fname" id="fname" placeholder="First name" required></td>
+          </tr>
+          <tr>
+              <td><label for="">Last Name</label></td>
+              <td><input type="text" name="lname" id="lname" placeholder="Last name" ></td>
+          </tr>
+          <tr>
+            <td><label for="">Age</label></td>
+            <td><input type="number" name="age" id="age" placeholder="Age" required></td>
+        </tr>
+        <tr>
+            <td><label for="">Blood Group</label></td>
+            <td><input type="text" name="bgroup" id="bgroup" placeholder="BloodGroup" required></td>
+        </tr>
+          <tr>
+              <td><label for="">Mobile Number</label></td>
+              <td><input type="tel" name="mobile" id="mobile" placeholder="Mobile number" required></td>
+          </tr>
+          <tr>
+              <td><label for="">Email ID</label></td>
+              <td><input type="email" name="email" id="email" placeholder="email ID" required></td>
+          </tr>
+          <tr>
+              <td><label for="">Date of Birth</label></td>
+              <td><input type="date" name="dob" id="dob" placeholder="DOB" required></td>
+          </tr>
+          <tr>
+              <td><label for="">Address</label></td>
+              <td><textarea name="address" id="address" cols="25" rows="6"></textarea></td>
+          </tr>
+          <tr>
+              <td><label for=""><pre>Any Health Concerns?</pre></label></td>
+               <td><textarea name="healthConcerns" id="healthConcerns" cols="25" rows="4"></textarea></td>
+          </tr>
+          <tr>
+              <td><button type="submit" onclick="return onValidate()">Submit</button></td>
+              <td><button type="reset">Cancel</button></td>
+          </tr>
+      </table>
+    </form>
+</div> 
+</body>
+</html>

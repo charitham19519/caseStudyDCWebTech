@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <script>
+        function onValidate(){
+            FirstName=document.getElementById("fname").value;
+            LastName=document.getElementById("lname").value;
+            PhoneNumber=document.getElementById("mobile").value;
+            AppDetails=document.getElementById("Adetails").value;
+
+            var  correct_way=/^[A-Za-z]+$/;
+            if (FirstName==null || FirstName==""){  
+                 alert("Name can't be blank");  
+                 return false;  
+            }
+            if(FirstName.match(correct_way)){
+                 true;
+            }
+            else{
+
+                 alert("The First name should not contain special Characters");
+                 return false;
+           }
+           if(LastName.match(correct_way)){
+                true;
+           }
+           else{
+            alert("The Last name should not contain special Characters");
+                 return false; 
+           }
+           if(PhoneNumber.length!=10 || PhoneNumber.charAt(0)=="0"){
+               alert("Please enter proper Phone number");
+               return false;
+
+           }
+           if(AppDetails.length>6){
+               alert("you can't enter more than 30 characters in Appointment Details");
+               return false;
+           }
+              
+        }
+
+    </script>
+    <style>
+        body{
+              margin: 0;
+              padding: 0;
+              font-family: sans-serif;
+              background: #34495e;
+              font-size: 12px;
+              background-image:url("images/bg4.jpg") ;
+              background-size: 1500px 700px;
+            }
+        .box{
+              width: 500px;
+              height: 575px;
+              color:white;
+              padding-top: 5px;
+              padding-left: 40px;
+              padding-bottom: 5px;
+              padding-right: 40px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%,-50%);
+              background: linear-gradient(rgba(5, 169, 190, 0.8),rgba(5, 149, 185, 0.8)); 
+              border-radius: 40px 0px;
+            
+           }
+           button{
+            border: 0;
+            background: none;
+            /* margin: 15px; */
+            /*text-align: center;*/
+            border: 2px solid white;
+             /* padding: 0px 100px;  */
+            width: 200px;
+            color: white;
+            border-radius: 24px;
+            outline: none;
+            
+           }
+           button:hover{
+               background-color: white;
+               color: black;
+           }
+    </style>
+</head>
+<body>
+    <div class=box>
+    <h1><center>Book Appointment</center></h1>
+    <hr>
+    <form action="">
+        <table>
+            <h2>Contact Information</h2>
+            <hr>
+            <tr>
+                <td><label for="">First Name</label></td>
+                <td><input type="text" name="fname" id="fname" required></td>
+            </tr>
+            <tr>
+                <td><label for="">Last Name</label></td>
+                <td><input type="text" name="lname" id="lname" ></td>
+            </tr>
+            <tr>
+                <td><label for="">Mobile Number</label></td>
+                <td><input type="tel" name="mobile" id="mobile" required></td>
+            </tr>
+            <tr>
+                <td><label for="">Doctor Specialization</label></td>
+                <td><input type="text" name="doctorSpec" id="doctorSpec"  required></td>
+            </tr>
+            <tr>
+                <td><label for="">Doctor Name</label></td>
+                <td><input type="text" name="doctorSpec" id="name" required></td>
+            </tr>
+        </table>
+        <hr>
+        <table>
+           
+            <h2>Appointment Information</h2>
+            <hr>
+            
+            <tr>
+                <td><label for="">Appointment Date</label></td>
+                <td><input type="date" name="Adate" id="Adate" required></td>
+            </tr>
+            <tr>
+                <td><label for="">Time Interval</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="interval" id="">
+                <label for="">Morning</label></td>
+                <td><input type="radio" name="interval" id="">
+                <label for="">Afternoon</label></td>
+                <td><input type="radio" name="interval" id="">
+                <label for="">Evening</label></td> 
+            </tr>
+            </table>
+            <table>
+            <tr>
+                <td><label for="">Appointment details</label></td>
+                <td><textarea name="Adetails" id="Adetails" cols="25" rows="6" placeholder=" Write Purpose of Appointment" required></textarea></td>
+            </tr>
+            </table>
+            <table>
+            <tr>
+                <td><label for="">Would you agree to reschedule the Appointment if needed ?</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="reschedule" id="">
+                <label for="">Yes</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="reschedule" id="">
+                <label for="">No</label></td>
+            </tr>
+           
+            <tr>
+                <td><button type="submit" onclick="return onValidate()">Book Appointment</button></td>
+            </tr>
+       
+        </table>
+    </form>
+</div>   
+</body>
+</html>
